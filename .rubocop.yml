@@ -1,0 +1,86 @@
+AllCops:
+  TargetRubyVersion: 3.0
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - '*.gemspec'
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+# SDK pattern: boolean defaults are common for fluent builders
+Style/OptionalBooleanParameter:
+  Enabled: false
+
+# SDK pattern: memoization with descriptive names
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+# Private methods can have short parameter names
+Naming/MethodParameterName:
+  Enabled: false
+
+# Predicate methods in private scope
+Naming/PredicateMethod:
+  Enabled: false
+
+# Allow HTTP status codes in test method names
+Naming/VariableNumber:
+  CheckMethodNames: false
+
+# Allow mutable constants for dynamic values
+Style/MutableConstant:
+  Enabled: false
+
+# Duplicate branches are intentional for error mapping
+Lint/DuplicateBranch:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'test/**/*'
+    - 'Rakefile'
+
+Metrics/MethodLength:
+  Max: 30
+  Exclude:
+    - 'lib/renderscreenshot/take_options.rb'
+    - 'test/**/*'
+
+Metrics/AbcSize:
+  Max: 50
+  Exclude:
+    - 'lib/renderscreenshot/take_options.rb'
+    - 'test/**/*'
+
+Metrics/ClassLength:
+  Max: 300
+  Exclude:
+    - 'lib/renderscreenshot/take_options.rb'
+    - 'test/**/*'
+
+Metrics/CyclomaticComplexity:
+  Max: 15
+  Exclude:
+    - 'lib/renderscreenshot/take_options.rb'
+
+Metrics/PerceivedComplexity:
+  Max: 15
+  Exclude:
+    - 'lib/renderscreenshot/take_options.rb'
+
+Metrics/ParameterLists:
+  Max: 7
+
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - 'test/**/*'

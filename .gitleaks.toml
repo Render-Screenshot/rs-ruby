@@ -1,0 +1,32 @@
+# Gitleaks configuration for RenderScreenshot Ruby SDK
+
+title = "RenderScreenshot Gitleaks Config"
+
+[allowlist]
+  description = "Allowlist for test fixtures and examples"
+  paths = [
+    '''test/.*''',
+    '''README\.md''',
+  ]
+  regexes = [
+    # Allow example/test API keys
+    '''rs_live_test_key_123''',
+    '''rs_live_your_api_key''',
+    '''rs_live_xxxxxxxxxxxxx''',
+    '''rs_pub_xxxxx''',
+    '''rs_secret_xxxxxxxxxxxxx''',
+    '''whsec_test_secret_key''',
+    '''whsec_xxxxx''',
+  ]
+
+[[rules]]
+  id = "renderscreenshot-api-key"
+  description = "RenderScreenshot API Key"
+  regex = '''rs_live_[a-zA-Z0-9]{20,}'''
+  keywords = ["rs_live_"]
+
+[[rules]]
+  id = "renderscreenshot-secret-key"
+  description = "RenderScreenshot Secret Key"
+  regex = '''rs_secret_[a-zA-Z0-9]{20,}'''
+  keywords = ["rs_secret_"]
