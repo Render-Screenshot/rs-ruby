@@ -408,11 +408,9 @@ class ClientTest < Minitest::Test
     stub_request(:post, "#{TEST_BASE_URL}/v1/screenshot")
       .to_return do |_request|
         call_count += 1
-        if call_count == 1
-          raise Faraday::TimeoutError
-        else
-          { status: 200, body: 'image_data', headers: { 'Content-Type' => 'image/png' } }
-        end
+        raise Faraday::TimeoutError if call_count == 1
+
+        { status: 200, body: 'image_data', headers: { 'Content-Type' => 'image/png' } }
       end
 
     result = client.take(url: 'https://example.com')
@@ -426,11 +424,9 @@ class ClientTest < Minitest::Test
     stub_request(:post, "#{TEST_BASE_URL}/v1/screenshot")
       .to_return do |_request|
         call_count += 1
-        if call_count == 1
-          raise Faraday::ConnectionFailed, 'Connection refused'
-        else
-          { status: 200, body: 'image_data', headers: { 'Content-Type' => 'image/png' } }
-        end
+        raise Faraday::ConnectionFailed, 'Connection refused' if call_count == 1
+
+        { status: 200, body: 'image_data', headers: { 'Content-Type' => 'image/png' } }
       end
 
     result = client.take(url: 'https://example.com')

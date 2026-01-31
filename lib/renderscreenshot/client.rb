@@ -24,7 +24,7 @@ module RenderScreenshot
       @signing_key = signing_key
       @public_key_id = public_key_id
       @http = HttpClient.new(api_key, base_url: base_url, timeout: timeout,
-                                       max_retries: max_retries, retry_delay: retry_delay)
+                                      max_retries: max_retries, retry_delay: retry_delay)
       @cache_manager = nil
     end
 
