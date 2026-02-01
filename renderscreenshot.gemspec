@@ -5,8 +5,8 @@ require_relative 'lib/renderscreenshot/version'
 Gem::Specification.new do |spec|
   spec.name = 'renderscreenshot'
   spec.version = RenderScreenshot::VERSION
-  spec.authors = ['RenderScreenshot']
-  spec.email = ['support@renderscreenshot.com']
+  spec.authors = ['Michael Brooks']
+  spec.email = ['michael@renderscreenshot.com']
 
   spec.summary = 'Official Ruby SDK for RenderScreenshot API'
   spec.description = 'A developer-friendly screenshot API for capturing web pages programmatically. ' \

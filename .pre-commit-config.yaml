@@ -1,9 +1,17 @@
 repos:
-  # Secret detection
+  # Secret detection - Gitleaks
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.18.4
     hooks:
       - id: gitleaks
+
+  # Secret detection - detect-secrets (additional layer)
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: vendor/
 
   # General checks
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -14,8 +22,19 @@ repos:
       - id: check-case-conflict
       - id: check-merge-conflict
       - id: check-yaml
+      - id: check-json
       - id: detect-private-key
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: no-commit-to-branch
         args: ['--branch', 'main']
+
+  # Ruby linting
+  - repo: local
+    hooks:
+      - id: rubocop
+        name: RuboCop
+        entry: bundle exec rubocop --force-exclusion
+        language: system
+        types: [ruby]
+        pass_filenames: true
