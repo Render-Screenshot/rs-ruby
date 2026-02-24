@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2026-01-31
+## [1.0.0] - 2026-02-24
 
 ### Added
 
@@ -44,4 +44,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `NotFoundError`, `RateLimitError`, `TimeoutError`
   - `ServerError`, `ConnectionError`
 - Global configuration via `RenderScreenshot.configure`
-- Full test coverage with Minitest
+- Dependabot for automated dependency updates
+- Full test coverage with Minitest (142 tests, 97% coverage)
+
+### Security
+
+- Faraday minimum version set to >= 2.12.3 (AIKIDO-2025-10223 vulnerability in earlier versions)
+
+### Requirements
+
+- Ruby >= 3.2.0
+- Faraday >= 2.12.3, < 3.0
+
+[1.0.0]: https://github.com/Render-Screenshot/rs-ruby/releases/tag/v1.0.0
