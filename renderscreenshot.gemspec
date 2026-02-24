@@ -13,11 +13,11 @@ Gem::Specification.new do |spec|
                      'Create social cards, link previews, documentation screenshots, and more.'
   spec.homepage = 'https://renderscreenshot.com'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 3.0.0'
+  spec.required_ruby_version = '>= 3.2.0'
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/renderscreenshot/renderscreenshot-ruby'
-  spec.metadata['changelog_uri'] = 'https://github.com/renderscreenshot/renderscreenshot-ruby/blob/main/CHANGELOG.md'
+  spec.metadata['source_code_uri'] = 'https://github.com/Render-Screenshot/rs-ruby'
+  spec.metadata['changelog_uri'] = 'https://github.com/Render-Screenshot/rs-ruby/blob/main/CHANGELOG.md'
   spec.metadata['documentation_uri'] = 'https://docs.renderscreenshot.com/sdks/ruby'
   spec.metadata['rubygems_mfa_required'] = 'true'
 
@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # Runtime dependencies
-  spec.add_dependency 'faraday', '>= 2.0', '< 3.0'
+  spec.add_dependency 'faraday', '>= 2.12.3', '< 3.0'
 
   # Development dependencies are in Gemfile
 end
