@@ -9,7 +9,7 @@ group :development, :test do
   gem 'minitest', '~> 5.20'
   gem 'minitest-reporters', '~> 1.6'
   gem 'rake', '~> 13.0'
-  gem 'rubocop', '~> 1.50'
+  gem 'rubocop', '~> 1.70'
   gem 'simplecov', '~> 0.22', require: false
   gem 'timecop', '~> 0.9'
   gem 'webmock', '~> 3.18'
