@@ -1,0 +1,34 @@
+name: Publish to RubyGems
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (build only, do not publish)'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+
+      - name: Run tests
+        run: bundle exec rake test
+
+      - name: Build gem
+        run: gem build renderscreenshot.gemspec
+
+      - name: Publish to RubyGems
+        if: ${{ !inputs.dry_run }}
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+        run: gem push renderscreenshot-*.gem
