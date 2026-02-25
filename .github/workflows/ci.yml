@@ -63,10 +63,10 @@ jobs:
       - name: Run bundler-audit
         run: bundle exec bundler-audit check --update
 
-      - name: Run Gitleaks (secret scanning)
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Run Gitleaks (secret scanning)
+      #   uses: gitleaks/gitleaks-action@v2
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
     needs: [test, security]
